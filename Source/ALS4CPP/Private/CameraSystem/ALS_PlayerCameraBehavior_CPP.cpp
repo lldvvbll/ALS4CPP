@@ -2,7 +2,7 @@
 
 
 #include "CameraSystem/ALS_PlayerCameraBehavior_CPP.h"
-#include "CharacterLogic/ALS_Base_CharacterCPP.h"
+#include "CharacterLogic/ALS_BaseCharacter_CPP.h"
 #include "CharacterLogic/ALS_PlayerController_CPP.h"
 
 void UALS_PlayerCameraBehavior_CPP::NativeUpdateAnimation(float DeltaSeconds)
@@ -28,4 +28,14 @@ void UALS_PlayerCameraBehavior_CPP::NativeUpdateAnimation(float DeltaSeconds)
 
 		PlayerController->GetDebugInfo(DummyChar, DebugView, Dummy, Dummy, Dummy, Dummy, Dummy, Dummy);
 	}
+}
+
+void UALS_PlayerCameraBehavior_CPP::SetPlayerController(APlayerController* NewPlayerController)
+{
+	PlayerController = Cast<AALS_PlayerController_CPP>(NewPlayerController);
+}
+
+void UALS_PlayerCameraBehavior_CPP::SetControlledPawn(APawn* NewPawn)
+{
+	ControlledPawn = Cast<AALS_BaseCharacter_CPP>(NewPawn);
 }

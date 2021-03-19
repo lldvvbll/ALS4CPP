@@ -7,8 +7,8 @@
 #include "Data/Enums.h"
 #include "ALS_PlayerCameraBehavior_CPP.generated.h"
 
-class AALS_Player_Controller_CPP;
-class AALS_Base_CharacterCPP;
+class AALS_PlayerController_CPP;
+class AALS_BaseCharacter_CPP;
 
 UCLASS()
 class ALS4CPP_API UALS_PlayerCameraBehavior_CPP : public UAnimInstance
@@ -18,12 +18,15 @@ class ALS4CPP_API UALS_PlayerCameraBehavior_CPP : public UAnimInstance
 public:
 	virtual void NativeUpdateAnimation(float DeltaSeconds) override;
 
+	void SetPlayerController(APlayerController* NewPlayerController);
+	void SetControlledPawn(APawn* NewPawn);
+
 private:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = Reference, Meta = (AllowPrivateAccess = true))
-	AALS_Player_Controller_CPP* PlayerController;
+	AALS_PlayerController_CPP* PlayerController;
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = Reference, Meta = (AllowPrivateAccess = true))
-	AALS_Base_CharacterCPP* ControlledPawn;
+	AALS_BaseCharacter_CPP* ControlledPawn;
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = CharacterInfo, Meta = (AllowPrivateAccess = true))
 	EALS_MovementState_CPP MovementState;
