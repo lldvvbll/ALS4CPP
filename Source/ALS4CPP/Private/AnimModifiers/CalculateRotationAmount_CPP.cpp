@@ -31,6 +31,8 @@ void UCalculateRotationAmount_CPP::OnApply_Implementation(UAnimSequence* Animati
 		float Value = (TransformA.GetRotation().Rotator().Yaw - TransformB.GetRotation().Rotator().Yaw) * FMath::Abs(AnimSequence->RateScale);
 		UAnimationBlueprintLibrary::AddFloatCurveKey(AnimSequence, CurveName, Time, Value);
 	}
+
+	UAnimationBlueprintLibrary::FinalizeBoneAnimation(AnimSequence);
 }
 
 FName UCalculateRotationAmount_CPP::GetCurveName() const

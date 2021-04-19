@@ -19,7 +19,7 @@ public:
 };
 
 USTRUCT(BlueprintType)
-struct FAnimCurveCreateParams_CPP
+struct FAnimCurveCreationParams_CPP
 {
 	GENERATED_BODY()
 
